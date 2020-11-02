@@ -1,48 +1,167 @@
 <html>
-    <head>
-        <title> Calculator </title>
-        <style>
-            .buttons {
-                border: 5px outside red;
-                background-color: cadetblue;
-                text-align: left;
-            }
-        </style>
-    </head>
 
-    <body>
-        <input type="text" id="inputField" name="inputText">
-        <hr>
-        <div class = "buttons">
-            <button id="one"> 1 </button>
-            <button id="two"> 2 </button>
-            <button id="three"> 3 </button>
-            <button id="plus"> + </button>
-            <button id= "minus"> - </button>
-            <button id= "equal" onclick=myFun()> = </button>
-        
-        </div>
-    </body>
+<head>
+    <title> Calculator </title>
+    <link rel="stylesheet" href="/home/umar/Desktop/Js/style.css">
+</head>
 
-    <script src="https://code.jquery.com/jquery-3.5.1.js" 
-        integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc=" crossorigin="anonymous">
-    </script>
+<body>
 
-    <script type="text/javascript">
-        function myFun() {
-            var text = document.getElementById("inputField").value;
-            alert(text, first);
+    <div class = "inputArea">
+        <input type="text" id="inputField" />
+        <br>
+
+        <input type="button" value=" 1 " class = "button" id="one" />
+        <input type="button" value=" 2 " class = "button" id="two" />
+        <input type="button" value=" 3 " class = "button" id="three" />
+        <input type="button" value=" + " class = "button ope" id="add" onclick="plus()" />
+        <br />
+
+        <input type="button" value=" 4 " class = "button" id="four" />
+        <input type="button" value=" 5 " class = "button" id="five" />
+        <input type="button" value=" 6 " class = "button" id="six" />
+        <input type="button" value=" - " class = "button ope" id="minus" onclick="negitive()" />
+        </br>
+
+        <input type="button" value=" 7 " class = "button" id="seven" />
+        <input type="button" value=" 8 " class = "button" id="eight" />
+        <input type="button" value=" 9 " class = "button" id="nine" />
+        <input type="button" value=" x " class = "button ope" id="multiply" onclick="multiply()" />
+        </br>
+        <input type="button" value=" 0 " class = "button" id="zero" />
+        <input type="button" value=" = " class = "button" id="equal" onclick="equal()" />
+        <input type="button" value=" . " class = "button" id="dot" />
+        <input type="button" value=" / " class = "button ope" id="divide" />
+        <br>
+        <input type="button" value=" C " class = "buttonHalf" id = "clear" />
+        <input type="button" value=" xx " class = "buttonHalf" id = "correct" />
+
+    </br>
+
+    </div>
+
+
+</body>
+
+<script src="https://code.jquery.com/jquery-3.5.1.js" integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc="
+    crossorigin="anonymous"></script>
+<script type="text/javascript">
+    var second;
+    var pluse = false, minus = false, mul = false, div = false;
+    function equal() {
+        second = parseInt(document.getElementById("inputField").value);
+        document.getElementById("inputField").value = first + second;
+
+        if (plus == true) {
+            document.getElementById("inputField").value = first + second;
         }
-    </script>
+        else if (minus == true) {
+            document.getElementById("inputField").value = first - second;
+        }
+        else if (mul == true) {
+            document.getElementById("inputField").value = first * second;
+        }
+        else if (div == true) {
+            document.getElementById("inputField").value = first / second;
+        }
 
-    <script>
-        var first;
-        $('#one').click(function (){
-            var text = document.getElementById("inputField");
-            text.value+=1;
-            first = $('#inputField').val();
-        });
+    }
+
+    function plus() {
+        first = parseInt(document.getElementById('inputField').value);
+        document.getElementById('inputField').value = "";
+        plus = true;
+    }
+
+    function negitive() {
+        first = parseInt(document.getElementById('inputField').value);
+        document.getElementById('inputField').value = "";
+        minus = true;
+    }
+
+    function multiply() {
+        first = parseInt(document.getElementById('inputField').value);
+        document.getElementById('inputField').value = "";
+        mul = true;
+    }
+
+    function divide() {
+        first = parseInt(document.getElementById('inputField').value);
+        document.getElementById('inputField').value = "";
+        div = true;
+    }
+
+</script>
+
+
+
+<script>
+    var first;
+    $('#one').click(function () {
+        var text = document.getElementById("inputField");
+        text.value += 1;
+        first = $('#inputField').val();
+    });
+
+    $('#two').click(function () {
+        var text = document.getElementById("inputField");
+        text.value += 2;
+    });
+
+    $('#three').click(function () {
+        var text = document.getElementById("inputField");
+        text.value += 3;
+    });
+
+    $('#four').click(function () {
+        var text = document.getElementById("inputField");
+        text.value += 4;
+    });
+    $('#five').click(function () {
+        var text = document.getElementById("inputField");
+        text.value += 5;
+    });
+    $('#six').click(function () {
+        var text = document.getElementById("inputField");
+        text.value += 6;
+    });
+    $('#seven').click(function () {
+        var text = document.getElementById("inputField");
+        text.value += 7;
+    });
+    $('#eight').click(function () {
+        var text = document.getElementById("inputField");
+        text.value += 8;
+    });
+    $('#nine').click(function () {
+        var text = document.getElementById("inputField");
+        text.value += 9;
+    });
+
+    $('#zero').click(function () {
+        var text = document.getElementById("inputField");
+        text.value += 0;
+    });
+
+    $('#clear').click(function(){
+        document.getElementById("inputField").value = "";
+        minus = false;
+        plus = false;
+        div = false;
+        mul = false;
+        first = 0;
+        second = 0;
+    });
+
+    $('#correct').click(function(){
     
-    </script>
+        var value = document.getElementById("inputField").value ;
+        if (value.length != 0) {
+            document.getElementById("inputField").value = value.substring(0,value.length - 1);
+        }
+    });
+
+
+</script>
 
 </html>
